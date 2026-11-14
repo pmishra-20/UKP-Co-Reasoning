@@ -1,0 +1,23 @@
+.wrap { flex: 0 0 auto; padding: 12px 16px 16px; border-top: 1px solid var(--border); background: var(--bg-panel); }
+.box { background: var(--surface); border: 1.5px solid var(--border-strong); border-radius: var(--r-xl); padding: 10px 12px; display: flex; flex-direction: column; gap: var(--s-2); }
+.box:focus-within { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; max-height: 96px; overflow-y: auto; }
+.chip { display: flex; align-items: center; gap: 6px; max-width: 100%; font-size: var(--fs-12); color: var(--note-text); background: var(--evidence-bg); border: 1px solid var(--evidence-border); border-radius: var(--r-md); padding: 3px 4px 3px 8px; }
+.chipText { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 220px; }
+.chipPage { color: var(--evidence-text); white-space: nowrap; }
+.chip button { width: 22px; height: 22px; border: 0; background: transparent; color: var(--evidence-text); border-radius: 4px; display: flex; align-items: center; justify-content: center; }
+.chip button:hover { background: var(--evidence-border); }
+.ta { border: 0; outline: none; resize: none; font: 14px/21px var(--font-ui); color: var(--text); background: transparent; width: 100%; }
+.ta::placeholder { color: var(--text-muted); }
+.row { display: flex; align-items: center; gap: var(--s-2); flex-wrap: wrap; }
+.row select { height: 30px; border: 1px solid var(--border-strong); border-radius: var(--r-md); background: var(--surface); font-size: var(--fs-13); padding: 0 8px; }
+.seg { display: flex; background: var(--bg-sidebar); border-radius: var(--r-md); padding: 2px; }
+.seg button { height: 26px; padding: 0 10px; border: 0; border-radius: var(--r-sm); background: transparent; font-size: var(--fs-12); color: var(--text-2); }
+.seg button[data-on="true"] { background: #fff; color: var(--text); font-weight: 600; box-shadow: 0 1px 2px rgba(21, 23, 28, 0.12); }
+.grow { flex: 1 1 auto; }
+.go { height: 34px; display: flex; align-items: center; gap: 6px; padding: 0 14px; border: 0; border-radius: 10px; background: var(--accent); color: #fff; font-size: var(--fs-13); font-weight: 600; }
+.go:hover:not(:disabled) { background: var(--accent-hover); }
+.go:disabled { background: var(--hover); color: var(--text-muted); }
+.spin { animation: spin 0.9s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.foot { font-size: var(--fs-11); color: var(--text-muted); margin-top: 6px; text-align: center; }
