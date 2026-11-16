@@ -1,0 +1,16 @@
+from abc import ABC, abstractmethod
+
+from app.models import Session
+
+
+class SessionStore(ABC):
+    @abstractmethod
+    async def list(self) -> list[Session]: ...
+    @abstractmethod
+    async def get(self, id: str) -> Session | None: ...
+    @abstractmethod
+    async def create(self, s: Session) -> Session: ...
+    @abstractmethod
+    async def update(self, s: Session) -> Session: ...
+    @abstractmethod
+    async def delete(self, id: str) -> bool: ...

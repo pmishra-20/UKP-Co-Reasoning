@@ -1,0 +1,36 @@
+*, *::before, *::after { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0; font-family: var(--font-ui); font-size: var(--fs-14);
+  color: var(--text); background: var(--bg-app); -webkit-font-smoothing: antialiased;
+}
+button, input, select, textarea { font-family: inherit; font-size: inherit; color: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+a { color: var(--accent); }
+a:hover { color: var(--accent-hover); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.label-caps {
+  font-size: var(--fs-11); font-weight: 600; letter-spacing: var(--label-tracking);
+  text-transform: uppercase; color: var(--text-muted);
+}
+
+/* PDF text-layer highlights (applied imperatively to pdf.js spans) */
+.textLayer span.ra-hl-evidence { background: var(--evidence-highlight); mix-blend-mode: multiply; border-radius: 2px; }
+.textLayer span.ra-hl-highlight { background: var(--selection); mix-blend-mode: multiply; border-radius: 2px; }
+.textLayer span.ra-flash { animation: ra-flash 2s var(--ease); border-radius: 2px; }
+@keyframes ra-flash {
+  0%, 60% { background: var(--evidence-mark); }
+  100% { background: transparent; }
+}
+
+@media (pointer: coarse) {
+  button, select, input[type="search"] { min-height: 44px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

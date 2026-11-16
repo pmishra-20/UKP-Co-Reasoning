@@ -1,0 +1,60 @@
+.sidebar {
+  flex: 0 0 var(--sidebar-w); width: var(--sidebar-w); background: var(--bg-sidebar); border-right: 1px solid var(--border);
+  padding: 14px 12px; display: flex; flex-direction: column; gap: 14px; overflow-y: auto; min-height: 0;
+  animation: slide var(--dur-med) var(--ease);
+}
+@keyframes slide { from { width: var(--sidebar-rail-w); flex-basis: var(--sidebar-rail-w); } }
+.rail {
+  flex: 0 0 var(--sidebar-rail-w); width: var(--sidebar-rail-w); background: var(--bg-sidebar); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; align-items: center; gap: 10px; padding-top: 14px;
+}
+.railBtn {
+  width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--border-strong); background: var(--surface);
+  display: flex; align-items: center; justify-content: center; color: var(--text); text-decoration: none;
+}
+button.railBtn { border-color: transparent; background: transparent; color: var(--text-2); }
+button.railBtn:hover { background: var(--hover); }
+.backdrop { display: none; }
+.newBtn {
+  display: flex; align-items: center; gap: var(--s-2); height: 40px; padding: 0 var(--s-3); border-radius: 10px;
+  background: var(--surface); border: 1px solid var(--border-strong); color: var(--text); text-decoration: none;
+  font-size: var(--fs-14); font-weight: 600;
+}
+.newBtn:hover { color: var(--text); background: #fafbfc; }
+.search {
+  display: flex; align-items: center; gap: var(--s-2); height: 36px; padding: 0 10px; border-radius: var(--r-md);
+  background: var(--hover); color: var(--text-muted); font-size: var(--fs-13);
+}
+.search input { border: 0; background: transparent; outline: none; width: 100%; color: var(--text); }
+.search:focus-within { outline: 2px solid var(--accent); outline-offset: 2px; }
+.groups { display: flex; flex-direction: column; gap: 14px; }
+.group { display: flex; flex-direction: column; gap: 2px; }
+.groupLabel { padding: 4px 8px; }
+.itemWrap { position: relative; border-radius: var(--r-md); }
+.itemWrap[data-active="true"] { background: var(--surface); box-shadow: var(--shadow-1); }
+.itemWrap:hover:not([data-active="true"]) { background: var(--hover); }
+.item { display: flex; flex-direction: column; gap: 2px; padding: 8px 34px 8px 10px; text-decoration: none; color: var(--text); min-height: 44px; min-width: 0; }
+.item:hover { color: var(--text); }
+.itemTitle { font-size: var(--fs-13); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.itemMeta { font-size: var(--fs-12); color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.more {
+  position: absolute; right: 4px; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; border: 0;
+  background: transparent; border-radius: var(--r-sm); color: var(--text-2); display: none; align-items: center; justify-content: center;
+}
+.itemWrap:hover .more, .itemWrap:focus-within .more, .more[aria-expanded="true"] { display: flex; }
+.more:hover { background: var(--border-strong); }
+.menu {
+  position: absolute; right: 4px; top: calc(100% - 6px); z-index: 30; min-width: 140px; background: var(--surface);
+  border: 1px solid var(--border-strong); border-radius: var(--r-md); box-shadow: var(--shadow-pop); padding: 4px; display: flex; flex-direction: column;
+}
+.menu button { text-align: left; border: 0; background: transparent; padding: 8px 10px; border-radius: var(--r-sm); font-size: var(--fs-13); min-height: 32px; }
+.menu button:hover { background: var(--hover); }
+.menu .danger { color: var(--danger); }
+.rename { width: 100%; height: 44px; padding: 0 10px; border: 1.5px solid var(--accent); border-radius: var(--r-md); font-size: var(--fs-13); background: var(--surface); }
+.empty { margin: 4px 8px; font-size: var(--fs-13); color: var(--text-muted); line-height: 1.45; }
+@media (max-width: 900px) {
+  .sidebar { position: fixed; z-index: 40; top: var(--topbar-h); bottom: 0; left: 0; box-shadow: var(--shadow-pop); animation: none; }
+  .rail { display: none; }
+  .backdrop { display: block; position: fixed; inset: var(--topbar-h) 0 0 0; z-index: 39; background: rgba(21, 23, 28, 0.35); }
+}
+@media (prefers-reduced-motion: reduce) { .sidebar { animation: none; } }
